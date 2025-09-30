@@ -1,0 +1,157 @@
+type: collection.insomnia.rest/5.0
+name: ISW - Tarea 2 (Perfil con JWT)
+meta:
+  id: wrk_a804085d6f8446e79ecd4bd32b1bb0a7
+  created: 1759186008592
+  modified: 1759186008592
+  description: ""
+collection:
+  - name: ISW - Tarea 2 (Perfil con JWT)
+    meta:
+      id: fld_05dc9aeddd144de4b85648712eaaad39
+      created: 1759186008593
+      modified: 1759186008593
+      sortKey: -1759186005340
+      description: >-
+        Colección para registrar, loguear, actualizar y eliminar perfil usando
+        JWT.
+
+        Base URL: http://localhost:3000
+    children:
+      - url: http://localhost:3000/api/auth/register
+        name: Auth - Register
+        meta:
+          id: req_4bcb62c305d845188544fddd491bcb65
+          created: 1759186008594
+          modified: 1759199375652
+          isPrivate: false
+          description: Crea un usuario nuevo.
+          sortKey: -1759186005339
+        method: POST
+        body:
+          mimeType: text/plain
+          text: |-
+            {
+              "email": "tester@example.com",
+              "password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/auth/login
+        name: Auth - Login
+        meta:
+          id: req_3a3d0be337b34e69b812cefa4e212b2b
+          created: 1759186008595
+          modified: 1759199411764
+          isPrivate: false
+          description: Devuelve token JWT.
+          sortKey: -1759186005338
+        method: POST
+        body:
+          mimeType: text/plain
+          text: |-
+            {
+              "email": "tester@example.com",
+              "password": "123456"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/profile/private
+        name: Profile - PATCH /private
+        meta:
+          id: req_c51ca40a6e9e43498a2840a7a3f31563
+          created: 1759186008595
+          modified: 1759199440067
+          isPrivate: false
+          description: Actualiza email y/o password del propio usuario.
+          sortKey: -1759186005337
+        method: PATCH
+        body:
+          mimeType: text/plain
+          text: |-
+            {
+              "email": "nuevito0s@mail.cl",
+              "password": "nueva123"
+            }
+        headers:
+          - name: Authorization
+            value: bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6InRlc3RlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1OTE5OTQxNCwiZXhwIjoxNzU5MjAzMDE0fQ.me-l4cxGioPdcRqgE6yFsBSj5hjYHsAb85473jF0WWs
+            id: pair_ebf7391c6652490baa38b1d57ecff290
+          - name: Content-Type
+            value: application/json
+            id: pair_79ee4b14423343ffb990b766a6bee34e
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6InRlc3RlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1OTE5OTQxNCwiZXhwIjoxNzU5MjAzMDE0fQ.me-l4cxGioPdcRqgE6yFsBSj5hjYHsAb85473jF0WWs
+          prefix: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:3000/api/profile/private
+        name: Profile - DELETE /private
+        meta:
+          id: req_91adbfd9a6644a499fa3a418092e091d
+          created: 1759186008596
+          modified: 1759199457681
+          isPrivate: false
+          description: Elimina la cuenta del propio usuario.
+          sortKey: -1759186005336
+        method: DELETE
+        headers:
+          - name: Authorization
+            value: Bearer
+              eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6InRlc3RlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1OTE5OTQxNCwiZXhwIjoxNzU5MjAzMDE0fQ.me-l4cxGioPdcRqgE6yFsBSj5hjYHsAb85473jF0WWs
+            id: pair_6f1b492f9f4641bbb5214f328da02d42
+        authentication:
+          type: bearer
+          disabled: false
+          token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEyLCJlbWFpbCI6InRlc3RlckBleGFtcGxlLmNvbSIsImlhdCI6MTc1OTE5OTQxNCwiZXhwIjoxNzU5MjAzMDE0fQ.me-l4cxGioPdcRqgE6yFsBSj5hjYHsAb85473jF0WWs
+          prefix: ""
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+    environment:
+      JWT_TOKEN: ""
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_d821fab23dbf2b37639b71e540fbe06a4869ae65
+    created: 1759186010803
+    modified: 1759186010803
+environments:
+  name: Base Environment
+  meta:
+    id: env_d821fab23dbf2b37639b71e540fbe06a4869ae65
+    created: 1759186008597
+    modified: 1759186008597
+    isPrivate: false

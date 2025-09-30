@@ -1,0 +1,120 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_8cc588de1352426c9aa845584b858a23
+  created: 1751585509942
+  modified: 1751585509942
+  description: ""
+collection:
+  - url: http://localhost:3000/api/comunicado
+    name: My first request
+    meta:
+      id: req_6ae84be3ba1942f187572a0b4ab5d844
+      created: 1751585509969
+      modified: 1752798762038
+      isPrivate: false
+      description: ""
+      sortKey: -1751585509969
+    method: GET
+    body:
+      mimeType: application/json
+      text: ""
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: ""
+    name: New Request
+    meta:
+      id: req_69e0ce3a9a154dae8febf7376e0b687f
+      created: 1752700507433
+      modified: 1752700507433
+      isPrivate: false
+      description: ""
+      sortKey: -1752700507433
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/comunicado
+    name: New Request
+    meta:
+      id: req_d270a29d9618412ebcaf43bac077eebe
+      created: 1752700552853
+      modified: 1752700780243
+      isPrivate: false
+      description: ""
+      sortKey: -1752700552853
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.2.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: http://localhost:3000/api/users
+    name: New Request
+    meta:
+      id: req_907a08a8eee0443ca56721716e6b5216
+      created: 1752991948811
+      modified: 1753849683507
+      isPrivate: false
+      description: ""
+      sortKey: -1752991948811
+    method: GET
+    body:
+      mimeType: application/json
+      text: >
+        {
+          "titulo": "Prueba general",
+          "cuerpo": "Este comunicado se envía a todos los usuarios registrados.",
+          "destinatarios": ["para todos"]
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.3.0
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_8814e0a6f3ec8ce31031b2b9f9a5b0df2a57de54
+    created: 1751585509944
+    modified: 1751585509944
+environments:
+  name: Base Environment
+  meta:
+    id: env_8814e0a6f3ec8ce31031b2b9f9a5b0df2a57de54
+    created: 1751585509943
+    modified: 1751585509943
+    isPrivate: false
