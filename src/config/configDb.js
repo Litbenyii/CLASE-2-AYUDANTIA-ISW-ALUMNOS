@@ -2,6 +2,14 @@
 import { DataSource } from "typeorm";
 import { DATABASE, DB_USERNAME, HOST, PASSWORD, DB_PORT } from "./configEnv.js";
 
+console.log("[DB CONFIG]", {
+  HOST,
+  DB_PORT,
+  DB_USERNAME,
+  PASSWORD: PASSWORD ? `***${String(PASSWORD).slice(-2)}` : undefined,
+  DATABASE,
+});
+
 export const AppDataSource = new DataSource({
   type: "postgres",
   host: `${HOST}`,
@@ -12,6 +20,10 @@ export const AppDataSource = new DataSource({
   entities: ["src/entities/**/*.js"],
   synchronize: true, 
   logging: false,
+
+  ssl: { rejectUnauthorized: false },
+  extra: { ssl: true },
+
 });
 
 export async function connectDB() {

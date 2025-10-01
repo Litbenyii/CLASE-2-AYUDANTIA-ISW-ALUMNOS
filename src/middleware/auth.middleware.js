@@ -1,5 +1,7 @@
+// src/middleware/auth.middleware.js
 import jwt from "jsonwebtoken";
 import { handleErrorClient } from "../Handlers/responseHandlers.js";
+import { ACCESS_TOKEN_SECRET } from "../config/configEnv.js";
 
 export function authMiddleware(req, res, next) {
 
@@ -17,7 +19,8 @@ export function authMiddleware(req, res, next) {
   }
 
   try {
-    const payload = jwt.verify(token, process.env.JWT_SECRET);
+    // ✅ Usar la misma clave que al firmar
+    const payload = jwt.verify(token, ACCESS_TOKEN_SECRET);
 
     const id =
       payload?.id ??
@@ -36,7 +39,7 @@ export function authMiddleware(req, res, next) {
     }
 
     req.user = { id, email, token };
-
+    
     return next();
   } catch (error) {
     return handleErrorClient(res, 401, "Token inválido o expirado.", error.message);
