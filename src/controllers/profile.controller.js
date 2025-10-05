@@ -1,5 +1,5 @@
 import bcrypt from "bcryptjs";
-import { AppDataSource } from "../config/configDB.js";
+import { AppDataSource } from "../config/configDb.js";
 import { User } from "../entities/user.entity.js";
 import {
   handleSuccess,
