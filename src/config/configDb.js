@@ -1,6 +1,6 @@
 "use strict";
 import { DataSource } from "typeorm";
-import { DATABASE, DB_USERNAME, HOST, PASSWORD, DB_PORT } from "./configEnv.js";
+import { HOST, DB_USERNAME, PASSWORD, DB_PORT, DATABASE } from "./configEnv.js";
 
 console.log("[DB CONFIG]", {
   HOST,
@@ -12,18 +12,16 @@ console.log("[DB CONFIG]", {
 
 export const AppDataSource = new DataSource({
   type: "postgres",
-  host: `${HOST}`,
-  port: DB_PORT,
-  username: `${DB_USERNAME}`,
-  password: `${PASSWORD}`,
-  database: `${DATABASE}`,
-  entities: ["src/entities/**/*.*js"],
+  host: HOST,
+  port: Number(DB_PORT),
+  username: DB_USERNAME,
+  password: PASSWORD,
+  database: DATABASE,
+  entities: ["src/entities/**/*.js"],
   synchronize: true,
   logging: false,
-
-  // <<— estas dos líneas evitan el DEPTH_ZERO_SELF_SIGNED_CERT
+  // clave para certificado autofirmado:
   ssl: { rejectUnauthorized: false },
-  extra: { ssl: true },
 });
 
 export async function connectDB() {
