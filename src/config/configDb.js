@@ -22,6 +22,7 @@ export const AppDataSource = new DataSource({
   logging: false,
   // clave para certificado autofirmado:
   ssl: { rejectUnauthorized: false },
+  extra: { ssl: true },
 });
 
 export async function connectDB() {
